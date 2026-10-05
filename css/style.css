@@ -1242,7 +1242,7 @@ footer span:nth-child(2) {
 .landing-bg {
   position: absolute;
   inset: -15px;
-  background: url("../images/photo01.png") center center / cover no-repeat;
+  background: url("../images/landing.jpg") center center / cover no-repeat;
   filter: blur(8px);
   transform: scale(1.04);
   opacity: 0.55;
