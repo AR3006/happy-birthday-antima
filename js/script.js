@@ -54,3 +54,36 @@ musicBtn.addEventListener("click", () => {
     musicText.textContent = "Music";
   }
 });
+
+
+/* =========================================================
+   CINEMATIC BIRTHDAY LANDING
+   Added without changing the existing website logic.
+========================================================= */
+
+async function loadBirthdayLanding() {
+  const mount = document.getElementById("birthdayLanding");
+  if (!mount) return;
+
+  try {
+    const response = await fetch("landing.html", { cache: "no-cache" });
+    if (!response.ok) throw new Error("Could not load landing.html");
+
+    mount.innerHTML = await response.text();
+
+    const landing = document.getElementById("birthdayLandingScreen");
+    if (!landing) return;
+
+    setTimeout(() => {
+      landing.classList.add("landing-done");
+
+      setTimeout(() => {
+        mount.innerHTML = "";
+      }, 1500);
+    }, 5200);
+  } catch (error) {
+    console.warn("Birthday landing could not be loaded:", error);
+  }
+}
+
+loadBirthdayLanding();
