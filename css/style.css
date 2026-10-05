@@ -421,32 +421,22 @@ h2 {
 
 .memory-grid {
   display: grid;
-
-  grid-template-columns: 1.25fr 0.75fr;
-
-  gap: 60px 30px;
-
-  align-items: start;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  justify-items: center;
 }
 
 .memory {
-  margin: 0;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .memory img {
   display: block;
-
   width: 100%;
-
   height: 620px;
-
   object-fit: cover;
-
-  filter: saturate(0.82);
-
-  transition:
-    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
-    filter 0.5s ease;
 }
 
 .memory-small {
