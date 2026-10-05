@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171014">
+  <meta name="description" content="A romantic birthday memory website.">
+  <title>For You — A Little Love Story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="grain"></div>
+  <div id="hearts" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="brand">for <span>you</span> ♡</div>
+    <button class="music-btn" id="musicBtn" aria-label="Toggle music">
+      <span class="music-dot"></span><span id="musicText">Music</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <p class="eyebrow reveal">A little website for my favorite person</p>
+      <h1 class="reveal">Happy Birthday,<br><em>Beautiful.</em></h1>
+      <p class="hero-copy reveal">I could have bought you a gift.<br>Instead, I made you a tiny corner of the internet.</p>
+      <a href="#story" class="scroll-cue reveal"><span>↓</span> our little story</a>
+    </section>
+
+    <section class="intro" id="story">
+      <div class="section-label">01 — us</div>
+      <div class="intro-grid">
+        <div>
+          <p class="eyebrow">If I had to explain it...</p>
+          <h2>Some people<br><em>become home.</em></h2>
+        </div>
+        <p class="lead">Somewhere between the conversations, the laughter, the random little moments and everything in between, you became one of the most beautiful parts of my life.</p>
+      </div>
+    </section>
+
+    <section class="gallery">
+      <div class="section-head">
+        <div class="section-label">02 — memories</div>
+        <p>Little moments I never want to forget.</p>
+      </div>
+      <div class="memory-grid">
+        <figure class="memory memory-large"><img src="images/photo01.png" alt="Sample memory"><figcaption><span>01</span>A little beginning</figcaption></figure>
+        <figure class="memory memory-wide"><img src="images/photo02.png" alt="Sample memory"><figcaption><span>02</span>The smiles</figcaption></figure>
+        <figure class="memory memory-wide"><img src="images/photo03.png" alt="Sample memory"><figcaption><span>03</span>Our little world</figcaption></figure>
+        <figure class="memory memory-wide"><img src="images/photo04.png" alt="Sample memory"><figcaption><span>04</span>The adventures</figcaption></figure>
+        <figure class="memory memory-wide"><img src="images/photo05.png" alt="Sample memory"><figcaption><span>05</span>The quiet moments</figcaption></figure>
+        <figure class="memory memory-large"><img src="images/photo06.png" alt="Sample memory"><figcaption><span>06</span>And then you</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="quote">
+      <div class="quote-mark">“</div>
+      <p>In a world full of ordinary days,<br><em>you make mine extraordinary.</em></p>
+      <span>— always, me</span>
+    </section>
+
+    <section class="letter">
+      <div class="section-label">03 — a letter</div>
+      <div class="letter-card">
+        <p class="eyebrow">Dear you,</p>
+        <p class="letter-text">If this page could hold everything I feel for you, it would never finish loading.</p>
+        <p>So here is the shorter version: thank you for being you. For every laugh, every conversation, every memory and every future moment we haven't lived yet.</p>
+        <p>I hope this year brings you everything your heart quietly wishes for.</p>
+        <p class="signature">Happy birthday, my love. <span>♡</span></p>
+      </div>
+    </section>
+
+    <section class="surprise" id="surprise">
+      <div class="surprise-inner">
+        <div class="section-label">04 — one last thing</div>
+        <h2>There is still<br><em>one more surprise.</em></h2>
+        <button class="reveal-btn" id="revealBtn">Open it <span>→</span></button>
+        
+        <div class="secret" id="secret">
+
+          <div class="surprise-photo">
+            <img src="images/surprise.png" alt="Our special memory">
+          </div>
+        
+          <div class="secret-heart">♥</div>
+        
+          <p>
+            You are, and will always be,<br>
+            <em>one of my favorite reasons to smile.</em>
+          </p>
+        
+          <small>Happy birthday, beautiful.</small>
+        
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>made with love</span>
+    <span>♡</span>
+    <span>for my favorite person</span>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

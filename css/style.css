@@ -1,0 +1,1244 @@
+
+:root {
+  --bg: #120d10;
+  --surface: #1b1317;
+  --text: #f6ede9;
+  --muted: #b9aaa9;
+  --accent: #dca9ae;
+  --line: rgba(255, 255, 255, 0.12);
+
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 70% 15%,
+      rgba(173, 87, 105, 0.12),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 15% 70%,
+      rgba(130, 93, 116, 0.09),
+      transparent 35%
+    );
+
+  pointer-events: none;
+  z-index: -2;
+}
+
+
+/* =========================================================
+   GRAIN EFFECT
+========================================================= */
+
+.grain {
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 20;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+
+  animation: grain 0.25s steps(2) infinite;
+}
+
+@keyframes grain {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(2%, -1%);
+  }
+
+  50% {
+    transform: translate(-1%, 2%);
+  }
+
+  75% {
+    transform: translate(1%, 1%);
+  }
+
+  100% {
+    transform: translate(-2%, -1%);
+  }
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 76px;
+  padding: 0 5vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 100;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 13, 16, 0.78),
+    transparent
+  );
+
+  backdrop-filter: blur(7px);
+}
+
+.brand {
+  font-family: var(--serif);
+  font-size: 23px;
+  letter-spacing: 0.02em;
+}
+
+.brand span {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-btn {
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+
+  padding: 9px 15px;
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  cursor: pointer;
+
+  font: inherit;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.music-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  transform: translateY(-2px);
+}
+
+.music-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  box-shadow:
+    0 0 0 5px rgba(220, 169, 174, 0.1);
+}
+
+
+/* =========================================================
+   GENERAL TYPOGRAPHY
+========================================================= */
+
+.eyebrow,
+.section-label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 11px;
+  color: var(--accent);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--serif);
+}
+
+h1 em,
+h2 em {
+  font-weight: 400;
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  text-align: center;
+
+  position: relative;
+
+  padding: 110px 20px 80px;
+
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 70vw;
+  height: 70vw;
+
+  max-width: 800px;
+  max-height: 800px;
+
+  border: 1px solid rgba(220, 169, 174, 0.09);
+
+  border-radius: 50%;
+
+  top: 8%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+
+  width: 40vw;
+  height: 40vw;
+
+  background: rgba(220, 169, 174, 0.08);
+
+  filter: blur(100px);
+
+  border-radius: 50%;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 1;
+
+  font-size: clamp(70px, 11vw, 160px);
+
+  line-height: 0.8;
+
+  font-weight: 500;
+
+  letter-spacing: -0.045em;
+
+  margin: 28px 0 34px;
+}
+
+.hero-copy {
+  color: var(--muted);
+
+  line-height: 1.8;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   SCROLL CUE
+========================================================= */
+
+.scroll-cue {
+  position: absolute;
+
+  bottom: 38px;
+
+  color: var(--muted);
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.18em;
+
+  display: flex;
+
+  gap: 12px;
+
+  align-items: center;
+}
+
+.scroll-cue span {
+  color: var(--accent);
+
+  font-size: 22px;
+
+  animation: bob 1.8s infinite;
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+
+/* =========================================================
+   INTRO / GALLERY / LETTER CONTAINERS
+========================================================= */
+
+.intro,
+.gallery,
+.letter {
+  max-width: 1250px;
+
+  margin: auto;
+
+  padding: 150px 5vw;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro-grid {
+  display: grid;
+
+  grid-template-columns: 1.1fr 0.9fr;
+
+  gap: 8vw;
+
+  align-items: end;
+
+  margin-top: 50px;
+}
+
+h2 {
+  font-size: clamp(55px, 7vw, 100px);
+
+  line-height: 0.86;
+
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+
+  margin: 0;
+}
+
+.lead {
+  color: var(--muted);
+
+  font-size: 18px;
+
+  line-height: 1.9;
+
+  max-width: 450px;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.section-head {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: end;
+
+  border-bottom: 1px solid var(--line);
+
+  padding-bottom: 18px;
+
+  margin-bottom: 55px;
+}
+
+.section-head p {
+  color: var(--muted);
+
+  margin: 0;
+}
+
+.memory-grid {
+  display: grid;
+
+  grid-template-columns: 1.25fr 0.75fr;
+
+  gap: 60px 30px;
+
+  align-items: start;
+}
+
+.memory {
+  margin: 0;
+}
+
+.memory img {
+  display: block;
+
+  width: 100%;
+
+  height: 620px;
+
+  object-fit: cover;
+
+  filter: saturate(0.82);
+
+  transition:
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.5s ease;
+}
+
+.memory-small {
+  margin-top: 110px;
+}
+
+.memory-small img {
+  height: 460px;
+}
+
+.memory-wide {
+  grid-column: 1 / -1;
+}
+
+.memory-wide img {
+  height: 550px;
+}
+
+.memory:hover img {
+  transform: scale(1.018);
+
+  filter: saturate(1);
+}
+
+figcaption {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding-top: 15px;
+
+  color: var(--muted);
+
+  font-family: var(--serif);
+
+  font-size: 22px;
+}
+
+figcaption span {
+  color: var(--accent);
+
+  font-family: var(--sans);
+
+  font-size: 10px;
+
+  letter-spacing: 0.15em;
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote {
+  padding: 180px 7vw;
+
+  text-align: center;
+
+  border-top: 1px solid var(--line);
+
+  border-bottom: 1px solid var(--line);
+
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.quote-mark {
+  font-family: var(--serif);
+
+  color: var(--accent);
+
+  font-size: 100px;
+
+  line-height: 0.4;
+}
+
+.quote p {
+  font-family: var(--serif);
+
+  font-size: clamp(42px, 6vw, 82px);
+
+  line-height: 0.98;
+
+  margin: 35px auto;
+
+  max-width: 950px;
+}
+
+.quote span {
+  color: var(--muted);
+
+  font-size: 11px;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter-card {
+  max-width: 760px;
+
+  margin: 55px auto 0;
+
+  border: 1px solid var(--line);
+
+  padding: 70px clamp(28px, 7vw, 90px);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.01)
+    );
+
+  position: relative;
+}
+
+.letter-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  border: 1px solid rgba(220, 169, 174, 0.2);
+
+  border-radius: 50%;
+
+  right: -45px;
+  top: -45px;
+
+  pointer-events: none;
+}
+
+.letter-text {
+  font-family: var(--serif);
+
+  font-size: 42px;
+
+  line-height: 1.05;
+
+  margin: 45px 0 30px;
+}
+
+.letter-card > p:not(.eyebrow):not(.letter-text):not(.signature) {
+  color: var(--muted);
+
+  line-height: 1.9;
+
+  font-size: 15px;
+}
+
+.signature {
+  font-family: var(--serif);
+
+  font-size: 29px;
+
+  margin-top: 45px;
+}
+
+.signature span {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   SURPRISE SECTION
+========================================================= */
+
+.surprise {
+  min-height: 90vh;
+
+  display: grid;
+
+  place-items: center;
+
+  text-align: center;
+
+  padding: 120px 20px;
+}
+
+.surprise-inner {
+  width: 100%;
+
+  max-width: 850px;
+}
+
+.surprise h2 {
+  margin: 40px 0;
+}
+
+
+/* =========================================================
+   REVEAL BUTTON
+========================================================= */
+
+.reveal-btn {
+  background: var(--accent);
+
+  color: #251519;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  padding: 16px 26px;
+
+  font: 600 13px var(--sans);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.reveal-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 35px rgba(220, 169, 174, 0.2);
+}
+
+
+/* =========================================================
+   SECRET / SURPRISE REVEAL
+========================================================= */
+
+/*
+   IMPORTANT:
+   The previous max-height: 300px was clipping the
+   9:16 image + heart + text.
+
+   This version allows the entire content to expand.
+*/
+
+.secret {
+  width: 100%;
+
+  opacity: 0;
+
+  max-height: 0;
+
+  overflow: hidden;
+
+  transform: translateY(25px);
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease,
+    max-height 1.2s ease;
+
+  margin-top: 0;
+}
+
+.secret.open {
+  opacity: 1;
+
+  max-height: 1600px;
+
+  transform: translateY(0);
+
+  margin-top: 60px;
+}
+
+
+/* =========================================================
+   SURPRISE PHOTO
+========================================================= */
+
+.surprise-photo {
+  width: min(400px, 68%);
+
+  margin: 0 auto 35px;
+
+  padding: 0;
+
+  background: transparent;
+
+  box-shadow:
+    0 25px 60px rgba(75, 29, 42, 0.18);
+
+  opacity: 0;
+
+  transform:
+    translateY(35px)
+    scale(0.92)
+    rotate(-2deg);
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.secret.open .surprise-photo {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1)
+    rotate(-1deg);
+}
+
+.surprise-photo img {
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 9 / 16;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   SURPRISE HEART
+========================================================= */
+
+.secret-heart {
+  color: var(--accent);
+
+  font-size: 60px;
+
+  line-height: 1;
+
+  opacity: 0;
+
+  transform: translateY(15px);
+
+  transition:
+    opacity 0.8s ease 0.7s,
+    transform 0.8s ease 0.7s;
+}
+
+.secret.open .secret-heart {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   SURPRISE TEXT
+========================================================= */
+
+.secret p {
+  color: var(--text);
+
+  font-family: var(--serif);
+
+  font-size: 38px;
+
+  line-height: 1.2;
+
+  margin: 15px auto;
+
+  max-width: 700px;
+
+  opacity: 0;
+
+  transform: translateY(15px);
+
+  transition:
+    opacity 0.8s ease 1s,
+    transform 0.8s ease 1s;
+}
+
+.secret p em {
+  color: var(--accent);
+
+  font-style: italic;
+}
+
+.secret.open p {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   SURPRISE SUBTEXT
+========================================================= */
+
+.secret small {
+  display: block;
+
+  color: var(--muted);
+
+  font-family: var(--sans);
+
+  font-size: 13px;
+
+  letter-spacing: 0.05em;
+
+  opacity: 0;
+
+  transform: translateY(15px);
+
+  transition:
+    opacity 0.8s ease 1.3s,
+    transform 0.8s ease 1.3s;
+}
+
+.secret.open small {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+#hearts {
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 9;
+
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+
+  bottom: -30px;
+
+  color: var(--accent);
+
+  opacity: 0;
+
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    transform:
+      translateY(0)
+      scale(0.7);
+
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform:
+      translateY(-110vh)
+      rotate(25deg)
+      scale(1.1);
+
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   GENERAL REVEAL ANIMATION
+========================================================= */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  transition: 1s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  border-top: 1px solid var(--line);
+
+  padding: 28px 5vw;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 25px;
+
+  color: #766b6c;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.16em;
+
+  font-size: 9px;
+}
+
+footer span:nth-child(2) {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
+
+  /* ---------- Navigation ---------- */
+
+  .nav {
+    height: 65px;
+
+    padding: 0 20px;
+  }
+
+  .brand {
+    font-size: 20px;
+  }
+
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    min-height: 92vh;
+
+    padding:
+      100px 20px
+      70px;
+  }
+
+  .hero h1 {
+    font-size: 68px;
+
+    line-height: 0.85;
+  }
+
+  .hero-copy {
+    font-size: 14px;
+  }
+
+
+  /* ---------- Main Sections ---------- */
+
+  .intro,
+  .gallery,
+  .letter {
+    padding: 100px 22px;
+  }
+
+
+  /* ---------- Intro ---------- */
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+
+  /* ---------- Section Header ---------- */
+
+  .section-head {
+    display: block;
+  }
+
+  .section-head p {
+    margin-top: 16px;
+  }
+
+
+  /* ---------- Gallery ---------- */
+
+  .memory-grid {
+    display: block;
+  }
+
+  .memory,
+  .memory-small,
+  .memory-wide {
+    margin: 0 0 55px;
+  }
+
+  .memory img,
+  .memory-small img,
+  .memory-wide img {
+    height: auto;
+
+    aspect-ratio: 4 / 5;
+  }
+
+  .memory-wide img {
+    aspect-ratio: 16 / 10;
+  }
+
+
+  /* ---------- Quote ---------- */
+
+  .quote {
+    padding: 120px 25px;
+  }
+
+  .quote p {
+    font-size: 48px;
+  }
+
+
+  /* ---------- Letter ---------- */
+
+  .letter-card {
+    padding: 50px 28px;
+  }
+
+  .letter-text {
+    font-size: 35px;
+  }
+
+
+  /* =====================================================
+     MOBILE SURPRISE
+  ===================================================== */
+
+  .surprise {
+    min-height: auto;
+
+    padding:
+      100px 20px
+      120px;
+  }
+
+  .surprise h2 {
+    font-size: 58px;
+
+    margin: 30px 0;
+  }
+
+
+  /*
+     The secret must be allowed to grow enough
+     for the full 9:16 image + text.
+  */
+
+  .secret.open {
+    max-height: 1600px;
+
+    margin-top: 50px;
+  }
+
+
+  /*
+     Tall Instagram Story / Reel style photo
+  */
+
+  .surprise-photo {
+    width: 68%;
+
+    max-width: 400px;
+
+    padding: 0;
+
+    margin:
+      0 auto 30px;
+
+    background: transparent;
+
+    box-shadow:
+      0 20px 45px rgba(75, 29, 42, 0.2);
+  }
+
+  .surprise-photo img {
+    width: 100%;
+
+    aspect-ratio: 9 / 16;
+
+    object-fit: cover;
+
+    display: block;
+  }
+
+
+  /* ---------- Heart ---------- */
+
+  .secret-heart {
+    font-size: 48px;
+  }
+
+
+  /* ---------- Text ---------- */
+
+  .secret p {
+    font-size: 28px;
+
+    line-height: 1.3;
+
+    margin:
+      15px auto
+      12px;
+
+    padding: 0 10px;
+  }
+
+  .secret small {
+    font-size: 12px;
+
+    letter-spacing: 0.04em;
+  }
+
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    text-align: center;
+
+    padding: 25px 20px;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .hero h1 {
+    font-size: 58px;
+  }
+
+  h2 {
+    font-size: 52px;
+  }
+
+  .surprise h2 {
+    font-size: 50px;
+  }
+
+  /*
+     Slightly wider on very small screens
+     so the 9:16 photo remains visually impactful.
+  */
+
+  .surprise-photo {
+    width: 75%;
+  }
+
+  .secret p {
+    font-size: 25px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
