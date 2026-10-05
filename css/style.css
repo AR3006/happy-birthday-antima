@@ -1239,6 +1239,33 @@ footer span:nth-child(2) {
    Added without changing the existing website styles.
 ========================================================= */
 
+.landing-bg {
+  position: absolute;
+  inset: -30px;
+  background: url("../images/photo01.png") center center / cover no-repeat;
+  filter: blur(18px);
+  transform: scale(1.08);
+  opacity: 0.55;
+  z-index: 0;
+}
+
+.landing-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      rgba(18, 13, 16, 0.62),
+      rgba(18, 13, 16, 0.78)
+    );
+  z-index: 1;
+}
+
+.landing-content,
+.landing-hearts,
+.landing-hint {
+  z-index: 3;
+}
+
 #birthdayLanding {
   position: relative;
   z-index: 10000;
